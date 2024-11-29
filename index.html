@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Portafolio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+          rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Font Awesome -->
 </head>
 <body class="index">
 <header class="navbar">
     <nav class="menu">
         <ul>
-            <li><a href="index.html">Sobre mí</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <li><a href="proyectos.html">Proyectos</a></li>
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
@@ -25,65 +28,127 @@
 <div class="perfil-container">
     <img src="Images/perfil.jpg" alt="Foto de perfil" class="perfil-imagen">
     <div class="social-container">
-        <a href="tel:+1234567890" class="social-link phone">📞</a>
-        <a href="https://www.instagram.com/yourprofile" class="social-link instagram">Instagram</a>
-        <a href="https://x.com/yourprofile" class="social-link x">X</a>
-        <a href="https://www.linkedin.com/in/yourprofile" class="social-link linkedin">LinkedIn</a>
+        <a href="tel:+34673255495" class="social-link phone"><i class="fas fa-phone-alt"></i></a> <!-- Icono teléfono -->
+        <a href="https://www.instagram.com/Siirnaranjo" class="social-link instagram" target="_blank"><i class="fab fa-instagram"></i></a> <!-- Icono Instagram -->
+        <a href="https://x.com/Siirnaranjo" class="social-link x" target="_blank"><i class="fab fa-x-twitter"></i></a> <!-- Icono X (Twitter) -->
+        <a href="https://www.linkedin.com/in/gerson-interiano-290a332b1" class="social-link linkedin" target="_blank"><i class="fab fa-linkedin"></i></a> <!-- Icono LinkedIn -->
     </div>
 </div>
 
 <section id="contenido">
     <div class="bloque">
         <h2>Sobre mí</h2>
-        <p>Aquí puedes contar más sobre tu experiencia, habilidades y pasiones.</p>
+        <p> Soy un chico apasionado por la tecnología y la informática, siempre buscando comprender el funcionamiento interno de los dispositivos que utilizamos a diario. Desde niño, desarmar aparatos y descubrir cómo interactúan sus componentes me ha fascinado, y esa curiosidad se ha transformado en una pasión por el hardware.
+            Me encanta explorar cómo cada pieza encaja en un sistema más grande y cómo los avances tecnológicos están mejorando nuestras vidas de formas que antes parecían imposibles. Estoy particularmente interesado en temas como la optimización del rendimiento y la creación de soluciones personalizadas que maximizan la eficiencia.
+
+            Además de mi amor por la tecnología, la música tiene un papel central en mi vida. Me gusta tocar instrumentos y experimentar con sonidos, lo que me permite desconectar del mundo digital y liberar mi creatividad. Para mí, la música es un complemento perfecto a mi interés técnico, ya que me proporciona un equilibrio entre la
+            lógica de la informática y la libertad creativa de la expresión musical.
+
+            En cuanto a mi personalidad, me considero alguien tranquilo y paciente, características que me permiten concentrarme en los detalles y profundizar en cada aspecto de lo que hago. Disfruto del proceso de aprendizaje tanto como del resultado final, ya que cada paso me acerca a mejorar mis habilidades y a descubrir algo nuevo.
+            Creo firmemente en la perseverancia y el esfuerzo continuo, y siempre busco nuevas formas de desafiarme a mí mismo para aprender más y ser mejor.</p>
     </div>
     <div class="bloque">
         <h2>Proyectos Destacados</h2>
         <div class="proyectos">
             <div class="proyecto">
-                <img src="imagenes/proyecto1.jpg" alt="Imagen del Proyecto 1">
-                <h3><a href="proyecto1.html">Proyecto 1</a></h3>
-                <p>Breve descripción del Proyecto 1...</p>
+                <img src="Images/proyecto1.jpg" alt="TR">
+                <h3><a href="proyecto1.html">Un Mundo Simulado</a></h3>
+                <p>TR</p>
             </div>
             <div class="proyecto">
-                <img src="imagenes/proyecto2.jpg" alt="Imagen del Proyecto 2">
-                <h3><a href="proyecto2.html">Proyecto 2</a></h3>
-                <p>Breve descripción del Proyecto 2...</p>
+                <img src="Images/Canción.jpg" alt="Canción">
+                <h3><a href="proyecto2.html">4/23</a></h3>
+                <p>Composición musical</p>
             </div>
         </div>
     </div>
 </section>
 
 <footer>
-    <p>© Hecho por Manel y Gerson</p>
+    <p>© Hecho por Gerson</p>
 </footer>
 
 <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const nav = document.querySelector(".menu");
+
+    // Añadir la clase 'active' al menú de navegación cuando se carga la página
+    setTimeout(() => {
+        nav.classList.add("active");
+    }, 500); // Ajusta el retraso según sea necesario
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const perfilImagen = document.querySelector('.perfil-imagen');
     const socialContainer = document.querySelector('.social-container');
     const socialLinks = document.querySelectorAll('.social-link');
+    let isIconsVisible = false; // Estado de los iconos, si están visibles o no
 
-    // Cuando el ratón entra en la imagen de perfil
-    perfilImagen.addEventListener('mouseenter', function() {
+    // Función para mostrar los iconos
+    function showIcons() {
         socialContainer.style.opacity = '1'; // Mostrar el contenedor de los iconos
         socialLinks.forEach((link, index) => {
             setTimeout(() => {
                 link.style.opacity = '1'; // Hacer visibles los iconos
-                link.style.transform = link.style.transform.replace('scale(0)', 'scale(1)');
-            }, index * 100); // Los iconos aparecerán con un retraso para crear la animación
+                link.style.transform = 'scale(1)'; // Asegurarse de que la escala es la correcta
+            }, index * 100); // Retraso para cada icono
         });
-    });
+        isIconsVisible = true;
+    }
 
-    // Cuando el ratón sale de la imagen de perfil
-    perfilImagen.addEventListener('mouseleave', function() {
+    // Función para ocultar los iconos
+    function hideIcons() {
         socialContainer.style.opacity = '0'; // Ocultar el contenedor de los iconos
         socialLinks.forEach(link => {
             link.style.opacity = '0'; // Hacer invisibles los iconos
-            link.style.transform = link.style.transform.replace('scale(1)', 'scale(0)'); // Revertir la escala
+            link.style.transform = 'scale(0)'; // Reducir la escala
+        });
+        isIconsVisible = false;
+    }
+
+    // Si estamos en un dispositivo móvil, usar "touchstart" en vez de "mouseenter"
+    if (window.innerWidth <= 768) {
+        perfilImagen.addEventListener('touchstart', function() {
+            if (isIconsVisible) {
+                hideIcons(); // Si los iconos están visibles, los ocultamos
+            } else {
+                showIcons(); // Si no están visibles, los mostramos
+            }
+        });
+    } else {
+        // Para escritorio, usar los eventos de ratón
+        perfilImagen.addEventListener('mouseenter', function() {
+            if (!isIconsVisible) {
+                showIcons(); // Mostrar los iconos al pasar el ratón
+            }
+        });
+
+        perfilImagen.addEventListener('mouseleave', function() {
+            if (!isIconsVisible) {
+                hideIcons(); // Los iconos se ocultan al alejar el ratón
+            }
+        });
+
+        // También permitir que los iconos se muestren/oculten al hacer clic en la imagen
+        perfilImagen.addEventListener('click', function() {
+            if (isIconsVisible) {
+                hideIcons(); // Si los iconos están visibles, los ocultamos
+            } else {
+                showIcons(); // Si no están visibles, los mostramos
+            }
+        });
+    }
+
+    // Añadir evento para redirigir a la red social al hacer clic en los iconos
+    socialLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.stopPropagation(); // Evitar que el clic se propague al contenedor
+            window.open(link.href, '_blank'); // Abrir el enlace de la red social en una nueva ventana
         });
     });
 });
+
 </script>
 
 <script src="script.js"></script>

@@ -1,6 +1,9 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 28px;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -47,19 +50,21 @@ body {
     box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
     flex: 1; /* Permite que el contenido ocupe el espacio restante */
 }
+
 /* Contenedor de la imagen de perfil */
 .perfil-container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 58px;
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
 /* Imagen de perfil */
 .perfil-imagen {
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     border: 3px solid #000;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
@@ -79,8 +84,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 250px;
-    height: 250px;
+    width: 300px;  /* Aumenta el diámetro del círculo para que los iconos estén más lejos */
+    height: 300px; /* Aumenta el diámetro del círculo para que los iconos estén más lejos */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,27 +102,96 @@ body {
     transform: scale(0); /* Iconos invisibles por defecto */
 }
 
-/* Distribución de los iconos alrededor de la imagen */
+/* Ajuste de posición para cada icono */
 .social-link.phone {
-    top: -40px;
+    top: -70px;  /* Desplaza el ícono del teléfono un poco más arriba */
 }
 
 .social-link.instagram {
-    left: -90px;
+    left: -120px;  /* Desplaza Instagram más a la izquierda */
 }
 
 .social-link.x {
-    bottom: -40px;
+    bottom: -70px;  /* Desplaza X (Twitter) más abajo */
 }
 
 .social-link.linkedin {
-    right: -90px;
+    right: -120px;  /* Desplaza LinkedIn más a la derecha */
 }
 
 /* Cuando el ratón está sobre la imagen de perfil, mostrar los iconos */
 .perfil-container:hover .social-link {
     opacity: 1;
     transform: scale(1); /* Mostrar los iconos en tamaño normal */
+}
+
+/* Mostrar iconos en círculo al estar visibles */
+.social-container.show {
+    opacity: 1; /* Mostrar el contenedor */
+    pointer-events: auto; /* Los iconos serán clicables cuando sean visibles */
+}
+
+.social-container.show .social-link {
+    opacity: 1;
+    transform: scale(1); /* Mostrar los iconos en su tamaño normal */
+}
+
+/* Efecto de los iconos para que se muevan en el círculo */
+.social-link.phone {
+    transition-delay: 0s;
+}
+
+.social-link.instagram {
+    transition-delay: 0.1s;
+}
+
+.social-link.x {
+    transition-delay: 0.2s;
+}
+
+.social-link.linkedin {
+    transition-delay: 0.3s;
+}
+
+/* Para pantallas más pequeñas (móviles) */
+@media (max-width: 768px) {
+    .perfil-imagen {
+        width: 120px;
+        height: 120px;
+    }
+
+    .social-container {
+        width: 180px;
+        height: 180px;
+    }
+
+    .social-link {
+        font-size: 1.2rem;
+    }
+
+    .social-container.show .social-link {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .social-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: auto;
+        height: auto;
+        border-radius: none;
+        pointer-events: auto;
+    }
+
+    .social-link.phone,
+    .social-link.instagram,
+    .social-link.x,
+    .social-link.linkedin {
+        position: relative;
+        opacity: 1;
+        transform: translate(0, 0);
+    }
 }
 
 /* Bloques de contenido (las dos mitades) */
@@ -129,6 +203,11 @@ body {
     background: #fff; /* Fondo blanco */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra inicial */
     overflow: hidden; /* Evita que se desborde el contenido al hacer zoom */
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+
 }
 
 /* Efecto de zoom al pasar el ratón */
