@@ -22,6 +22,16 @@
     <p>Hola, soy Gerson.</p>
 </section>
 
+<div class="perfil-container">
+    <img src="Images/perfil.jpg" alt="Foto de perfil" class="perfil-imagen">
+    <div class="social-container">
+        <a href="tel:+1234567890" class="social-link phone">📞</a>
+        <a href="https://www.instagram.com/yourprofile" class="social-link instagram">Instagram</a>
+        <a href="https://x.com/yourprofile" class="social-link x">X</a>
+        <a href="https://www.linkedin.com/in/yourprofile" class="social-link linkedin">LinkedIn</a>
+    </div>
+</div>
+
 <section id="contenido">
     <div class="bloque">
         <h2>Sobre mí</h2>
@@ -49,15 +59,31 @@
 </footer>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const nav = document.querySelector(".menu");
+document.addEventListener('DOMContentLoaded', function() {
+    const perfilImagen = document.querySelector('.perfil-imagen');
+    const socialContainer = document.querySelector('.social-container');
+    const socialLinks = document.querySelectorAll('.social-link');
 
-        // Añadir la clase 'active' al menú de navegación cuando se carga la página
-        setTimeout(() => {
-            nav.classList.add("active");
-        }, 500); // Ajusta el retraso según sea necesario
+    // Cuando el ratón entra en la imagen de perfil
+    perfilImagen.addEventListener('mouseenter', function() {
+        socialContainer.style.opacity = '1'; // Mostrar el contenedor de los iconos
+        socialLinks.forEach((link, index) => {
+            setTimeout(() => {
+                link.style.opacity = '1'; // Hacer visibles los iconos
+                link.style.transform = link.style.transform.replace('scale(0)', 'scale(1)');
+            }, index * 100); // Los iconos aparecerán con un retraso para crear la animación
+        });
     });
 
+    // Cuando el ratón sale de la imagen de perfil
+    perfilImagen.addEventListener('mouseleave', function() {
+        socialContainer.style.opacity = '0'; // Ocultar el contenedor de los iconos
+        socialLinks.forEach(link => {
+            link.style.opacity = '0'; // Hacer invisibles los iconos
+            link.style.transform = link.style.transform.replace('scale(1)', 'scale(0)'); // Revertir la escala
+        });
+    });
+});
 </script>
 
 <script src="script.js"></script>

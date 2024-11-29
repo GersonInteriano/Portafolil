@@ -5,6 +5,9 @@ body {
     padding: 0;
     line-height: 1.6;
     margin-top: 30px; /* Ajusta este valor según la altura del header */
+    display: flex;
+    flex-direction: column; /* Estructura el contenido en una columna */
+    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
 }
 
 /* Estilo específico para el título principal en index */
@@ -42,6 +45,79 @@ body {
     margin: 0 auto; /* Centra el contenido */
     padding: 20px;
     box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+    flex: 1; /* Permite que el contenido ocupe el espacio restante */
+}
+/* Contenedor de la imagen de perfil */
+.perfil-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 58px;
+}
+
+/* Imagen de perfil */
+.perfil-imagen {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Efecto de zoom sobre la imagen */
+.perfil-imagen:hover {
+    transform: scale(1.2); /* Aumenta el tamaño de la imagen */
+}
+
+/* Contenedor de los iconos sociales */
+.social-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    pointer-events: none; /* Evita interferencia del mouse */
+}
+
+/* Iconos sociales, invisibles por defecto */
+.social-link {
+    position: absolute;
+    opacity: 0;
+    font-size: 1.5rem;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: scale(0); /* Iconos invisibles por defecto */
+}
+
+/* Distribución de los iconos alrededor de la imagen */
+.social-link.phone {
+    top: -40px;
+}
+
+.social-link.instagram {
+    left: -90px;
+}
+
+.social-link.x {
+    bottom: -40px;
+}
+
+.social-link.linkedin {
+    right: -90px;
+}
+
+/* Cuando el ratón está sobre la imagen de perfil, mostrar los iconos */
+.perfil-container:hover .social-link {
+    opacity: 1;
+    transform: scale(1); /* Mostrar los iconos en tamaño normal */
 }
 
 /* Bloques de contenido (las dos mitades) */
@@ -53,7 +129,6 @@ body {
     background: #fff; /* Fondo blanco */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra inicial */
     overflow: hidden; /* Evita que se desborde el contenido al hacer zoom */
-
 }
 
 /* Efecto de zoom al pasar el ratón */
@@ -82,7 +157,6 @@ body.index .proyecto {
     width: 100%; /* Cada proyecto ocupará el 50% del contenedor */
     text-align: center; /* Centra el texto */
     padding: 100px;
-
 }
 
 /* Imágenes dentro de cada proyecto */
@@ -90,7 +164,6 @@ body.index .proyecto img {
     width: 100%; /* La imagen ocupa todo el ancho del contenedor */
     height: auto; /* Mantiene la proporción de la imagen */
 }
-
 
 header {
     background-color: #000000;
@@ -140,7 +213,6 @@ nav ul li a {
     font-family: "Crimson Text", serif;
     font-weight: 700;
     font-style: normal;
-
 }
 
 /* Estado cuando el menú está activo */
@@ -178,26 +250,14 @@ nav.active ul li:nth-child(3) a {
     background-color: #f4f4f4;
 }
 
-#contenido {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    background-color: #fff;
-}
-
-.bloque {
-    flex: 1;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-}
-
 footer {
     text-align: center;
     padding: 10px;
     background-color: #333;
     color: white;
+    margin-top: auto; /* Empuja el footer al final */
 }
+
 .proyectos {
     display: flex;
     justify-content: space-around;
