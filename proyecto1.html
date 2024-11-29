@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio personal de Manel y Gerson con proyectos y contacto">
+    <meta name="author" content="Manel y Gerson">
+    <title>Proyecto 1 - Mi Portafolio</title>
+
+    <!-- Enlazar el archivo CSS general -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Enlazar el archivo CSS específico para la página del proyecto -->
+    <link rel="stylesheet" href="proyecto.css">
+</head>
+<body>
+<header class="navbar">
+    <nav>
+        <ul>
+            <li><a href="index.html">Sobre mí</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="proyecto-individual">
+    <div class="container">
+        <h2>Proyecto 1: [Nombre del Proyecto]</h2>
+
+        <div class="proyecto-contenido">
+            <div class="descripcion">
+                <h3>Descripción del proyecto</h3>
+                <p>Aquí puedes escribir una descripción detallada de tu proyecto. Incluye información sobre:</p>
+                <ul>
+                    <li>El objetivo del proyecto</li>
+                    <li>Las tecnologías que utilizaste</li>
+                    <li>Los desafíos que enfrentaste y cómo los superaste</li>
+                    <li>Los resultados que obtuviste</li>
+                </ul>
+
+                <h3>Código fuente</h3>
+                <p>Si el código fuente está disponible, puedes incluir un enlace a tu repositorio en GitHub u otra plataforma similar.</p>
+                <a href="https://github.com/tu-usuario/tu-repositorio" target="_blank">Ver código en GitHub</a>
+            </div>
+
+            <div class="imagen-funcionalidades">
+                <img src="imagenes/proyecto1-grande.jpg" alt="Imagen principal del Proyecto 1">
+                <h3>Funcionalidades</h3>
+                <p>Describe las principales funcionalidades de tu proyecto. Si es una aplicación web, puedes incluir capturas de pantalla de las diferentes secciones.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© Hecho por Manel y Gerson</p>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const nav = document.querySelector("nav");
+
+    // Añadir la clase 'active' al menú de navegación cuando se carga la página
+    setTimeout(() => {
+        nav.classList.add("active");
+    }, 500); // Ajusta el retraso según sea necesario
+});
+</script>
+
+<script src="/paginaweb/java/script.js" defer></script>
+<script src="java/proyecto.js"></script>
+
+</body>
+</html>
